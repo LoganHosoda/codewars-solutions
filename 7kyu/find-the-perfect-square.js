@@ -12,11 +12,13 @@
 
 // SOLUTION
 
-function findNextSquare(sq) {
-  let squareRoot = Math.sqrt(sq);
-  if (squareRoot % 1 != 0) {
-    return -1;
-  } else {
-    return (squareRoot + 1) ** 2;
-  }
-}
+// function findNextSquare(sq) {
+//   let squareRoot = Math.sqrt(sq);
+//   if (squareRoot % 1 != 0) {
+//     return -1;
+//   } else {
+//     return (squareRoot + 1) ** 2;
+//   }
+// }
+
+const findNextSquare = sq => (Math.sqrt(sq) % 1) ? -1 : (Math.sqrt(sq) + 1) ** 2;
