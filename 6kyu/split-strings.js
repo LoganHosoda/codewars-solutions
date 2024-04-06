@@ -5,26 +5,42 @@
 // * 'abc' =>  ['ab', 'c_']
 // * 'abcdef' => ['ab', 'cd', 'ef']
 
-// SOLUTION
+// ========== REFACTORED SOLUTION ========== //
 
 const solution = string => {
   let answer = [];
-  let tempStr = "";
-  let counter = 0;
-
+  
   if (string.length % 2 != 0) {
-    string += "_"
+    string += "_";
   }
-
-  for (let i in string) {
-    tempStr += string[i];
-    counter++;
-    if (counter == 2) {
-      answer.push(tempStr);
-      tempStr = "";
-      counter = 0;
-    }
+  
+  for (i = 0; i < string.length; i += 2) {
+    answer.push(string[i] + string[i + 1])
   }
   
   return answer;
 }
+
+// ========== OLD SOLUTION ========== //
+
+// const solution = string => {
+//   let answer = [];
+//   let tempStr = "";
+//   let counter = 0;
+
+//   if (string.length % 2 != 0) {
+//     string += "_"
+//   }
+
+//   for (let i in string) {
+//     tempStr += string[i];
+//     counter++;
+//     if (counter == 2) {
+//       answer.push(tempStr);
+//       tempStr = "";
+//       counter = 0;
+//     }
+//   }
+
+//   return answer;
+// }
