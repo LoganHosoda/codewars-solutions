@@ -9,23 +9,38 @@
 // [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
 // [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 
-// SOLUTION
+
+// REFACTORED SOLUTION
 
 function findOdd(A) {
   let count = {};
   
   A.forEach((el, index) => {
-    if (count[el] == undefined) {
-      count[el] = 1;   
-    } else {
-      count[el]++;
-    }
+    count[el] ? count[el]++ : count[el] = 1;
   })
   
   for (const [key, value] of Object.entries(count)) {
-    if (value % 2 !== 0) {
-      return parseInt(key);
-    }
+    if (value % 2 !== 0) return parseInt(key);
   }
-  
 }
+
+// ORIGINAL SOLUTION
+
+// function findOdd(A) {
+//   let count = {};
+  
+//   A.forEach((el, index) => {
+//     if (count[el] == undefined) {
+//       count[el] = 1;   
+//     } else {
+//       count[el]++;
+//     }
+//   })
+  
+//   for (const [key, value] of Object.entries(count)) {
+//     if (value % 2 !== 0) {
+//       return parseInt(key);
+//     }
+//   }
+  
+// }
