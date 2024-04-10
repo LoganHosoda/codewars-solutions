@@ -15,7 +15,7 @@
 function findOdd(A) {
   let count = {};
   
-  A.forEach((el, index) => {
+  A.forEach(el => {
     count[el] ? count[el]++ : count[el] = 1;
   })
   
