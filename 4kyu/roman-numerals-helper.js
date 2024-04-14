@@ -64,6 +64,20 @@ class RomanNumerals {
   }
 
   static fromRoman(str) {
-//     return 4;
+    let decimal = 0;
+    const romanMap = this.romanMap();
+    for (let i = 0; i < str.length; i++) {
+      const curSymbol = str[i];
+      const curValue = romanMap[curSymbol];
+      const nextSymbol = str[i + 1];
+      const nextValue = romanMap[nextSymbol];
+      if (nextValue && curValue < nextValue) {
+        decimal += nextValue - curValue;
+        i++;
+      } else {
+        decimal += curValue;
+      }
+    }
+    return decimal;
   }
 }
