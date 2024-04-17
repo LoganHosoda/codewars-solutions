@@ -34,3 +34,19 @@
 
 // SOLUTION
 
+function topThreeWords(text) {
+  let reduced = text.replace(/[^\w\s]/gi, '').split(" ");
+  let frequent = {};
+  
+  reduced.forEach(el => {
+    if (el) {
+      frequent[el] ? frequent[el]++ : frequent[el] = 1;
+    }
+  })
+  let keysSorted = Object.keys(frequent).sort(function(a, b){return frequent[b]-frequent[a]})
+  reduced = [];
+  for (let i = 0; i < 3; i++) {
+    reduced.push(keysSorted[i]);
+  } 
+  return reduced;
+}
