@@ -66,6 +66,21 @@ function formatDuration (seconds) {
         break;
     }
   }
-  
-  if (years == 1) ans += `${years} year `;
+  // Addition of years
+  if (years == 1) ans += `${years} year, `;
+  if (years > 1) ans += `${years} years, `;
+  // Addition of days
+  if (days == 1) ans += `${days} day, `;
+  if (days > 1) ans += `${days} days, `;
+  // Addition of hours
+  if (hours == 1) ans += `${hours} hour, `;
+  if (hours > 1) ans += `${hour} hours, `;
+  // Addition of minutes
+  if (minutes == 1) ans += `${minutes} minute, `;
+  if (minutes > 1) ans += `${minutes} minutes, `;
+  // Addition of seconds
+  if (sec == 1) ans += `and ${sec} second`;
+  if (sec > 1) ans += `and ${sec} seconds`;
+
+  return ans;
 }
