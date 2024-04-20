@@ -30,21 +30,35 @@
 // SOLUTION
 
 function formatDuration (seconds) {
-  let years, days, hours, minutes, sec, ans;
+  const year = 31536000;
+  const day = 86400;
+  const hour = 3600;
+  const minute = 60;
+
+  let years = 0, 
+      days = 0, 
+      hours = 0, 
+      minutes = 0, 
+      sec = 0, 
+      ans = ``;
   
   while (seconds) {
     switch (true) {
-      case seconds >= 31536000:
+      case seconds >= year:
         years += 1;
-        seconds -= 31536000;
+        seconds -= year;
         break;
-      case seconds >= 86400:
+      case seconds >= day:
         days += 1;
-        seconds -= 86400;
+        seconds -= day;
         break;
-      case seconds >= 3600:
+      case seconds >= hour:
         hours += 1;
-        seconds -= 3600;
+        seconds -= hour;
+        break;
+      case seconds >= minute:
+        minutes += 1;
+        seconds -= minute;
         break;
       default:
         sec = seconds;
@@ -53,5 +67,5 @@ function formatDuration (seconds) {
     }
   }
   
-  if years ? ans += `${years} year`
+  if (years == 1) ans += `${years} year `;
 }
