@@ -8,6 +8,8 @@ const beeramid = (bonus, cost) => {
       beeramid += 1;
       square += 1;
       beers -= needed;
+    } else {
+      return beeramid;
     }
   }
   return beeramid;
