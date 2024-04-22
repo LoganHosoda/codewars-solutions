@@ -30,6 +30,8 @@
 // SOLUTION
 
 function formatDuration (seconds) {
+  if (seconds === 0) return "now";
+  
   const year = 31536000;
   const day = 86400;
   const hour = 3600;
@@ -67,20 +69,25 @@ function formatDuration (seconds) {
     }
   }
   // Addition of years
-  if (years == 1) ans += `${years} year, `;
-  if (years > 1) ans += `${years} years, `;
+  if (years == 1) ans += `${years} year`;
+  if (years > 1) ans += `${years} years`;
   // Addition of days
-  if (days == 1) ans += `${days} day, `;
-  if (days > 1) ans += `${days} days, `;
+  if (years && days) ans += `, `
+  if (days == 1) ans += `${days} day`;
+  if (days > 1) ans += `${days} days`;
   // Addition of hours
-  if (hours == 1) ans += `${hours} hour, `;
-  if (hours > 1) ans += `${hour} hours, `;
+  if ((years || days) && hours) ans += `, `
+  if (hours == 1) ans += `${hours} hour`;
+  if (hours > 1) ans += `${hours} hours`;
   // Addition of minutes
-  if (minutes == 1) ans += `${minutes} minute, `;
-  if (minutes > 1) ans += `${minutes} minutes, `;
+  if (((years || days || hours) && minutes) && !sec) ans += ` and `
+  else if ((years || days || hours) && minutes) ans += `, `
+  if (minutes == 1) ans += `${minutes} minute`;
+  if (minutes > 1) ans += `${minutes} minutes`;
   // Addition of seconds
-  if (sec == 1) ans += `and ${sec} second`;
-  if (sec > 1) ans += `and ${sec} seconds`;
+  if ((years || days || hours || minutes) && sec) ans += ` and `;
+  if (sec == 1) ans += `${sec} second`;
+  if (sec > 1) ans += `${sec} seconds`;
 
   return ans;
 }
