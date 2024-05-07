@@ -4,12 +4,16 @@
 
 // Note: if there is nothing to sum, the sum is default to 0.
 
-// SOLUTION
+// NEW SOLUTION
 
-const positiveSum = arr => {
-  let sum = 0;
-  arr.forEach(num => {
-    if (num > 0) sum += num
-  })
-  return sum;
-}
+const positiveSum = arr => arr.reduce((sum, num) => num > 0 ? sum + num : sum, 0)
+
+// OLD SOLUTION
+
+// const positiveSum = arr => {
+//   let sum = 0;
+//   arr.forEach(num => {
+//     if (num > 0) sum += num
+//   })
+//   return sum;
+// }
