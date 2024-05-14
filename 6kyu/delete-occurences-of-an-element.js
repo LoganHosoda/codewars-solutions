@@ -12,19 +12,5 @@
 
 function deleteNth(arr,n){
   let track = {};
-  let ans = [];
-  
-  arr.forEach((num) => {
-   !track[num] ? track[num] = 1 : 
-   track[num] < n ? track[num]++ : n
-  })
-  
-  arr.forEach((num) => {
-    if (track[num] > 0) {
-      ans.push(num);
-      track[num]--;
-    }
-  })
-  
-  return ans;
+  return arr.filter(num => (track[num] = track[num]++ || 1) <= n);
 }
