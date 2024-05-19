@@ -13,8 +13,4 @@
 
 // SOLUTION
 
-function findNeedle(haystack) {
-  for (i = 0; i < haystack.length; i++) {
-    if (haystack[i] == 'needle') return `found the needle at position ${i}`
-  }
-}
+const findNeedle = haystack => `found the needle at position ${haystack.indexOf('needle')}`
