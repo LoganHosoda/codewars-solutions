@@ -9,7 +9,7 @@
 // I is misinterpreted as 1
 // The test cases contain numbers only by mistake.
 
-// SOLUTION
+// SOLUTION - STILL NEED TO COMPLETE THIS ONE
 
 function correct(string) {
 	const map = {0: 'O', 5: 'S', 1: 'I'}
