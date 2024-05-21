@@ -15,13 +15,7 @@ function correct(string) {
 	const map = {0: 'O', 5: 'S', 1: 'I'}
   let ans = '';
   for (i = 0; i < string.length; i++) {
-    if (string[i] == 1 || string[i] == 5 || string[i] == 0) {
-      ans += map[string[i]]
-    } else if (string == undefined) {
-      ans += " ";
-    } else {
-      ans += string[i];
-    }
+    map[string[i]] ? ans += map[string[i]] : ans += string[i];
   }
   return ans;
 }
