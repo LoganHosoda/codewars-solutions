@@ -7,12 +7,16 @@
 function isValidWalk(walk) {
   let position = { 'x': 0, 'y': 0 }
   let direction = { 'n': 1, 'e': 1, 's': -1, 'w': -1 }
+  let minutes = 0;
   let isExact = true;
 
   walk.forEach(dir => {
     if (dir == 'n' || dir == 's') position['x'] += direction[dir];
     if (dir == 'e' || dir == 'w') position['y'] += direction[dir];
+    minutes++;
   })
+  
+  if (minutes !== 10) return false;
   
   const finalPos = Object.values(position)
   finalPos.forEach(pos => {
