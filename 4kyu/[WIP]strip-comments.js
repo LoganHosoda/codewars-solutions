@@ -20,5 +20,16 @@
 // SOLUTION
 
 function solution(text, markers) {
-  
-}
+  //   if (text.includes(markers)) {
+  //     console.log(`Yes, '${text}' includes '${markers}'`)
+  //   } else {
+  //     console.log(`No, '${text}' does not include '${markers}'`)
+  //   }
+    markers.forEach(mark => {
+      let regex = `/${mark}/i`
+      text = text.replace(regex, '')
+      console.log(text.match(regex))
+    })
+    
+    return text.trimEnd();
+  }
