@@ -20,16 +20,17 @@
 // SOLUTION
 
 function solution(text, markers) {
-  //   if (text.includes(markers)) {
-  //     console.log(`Yes, '${text}' includes '${markers}'`)
-  //   } else {
-  //     console.log(`No, '${text}' does not include '${markers}'`)
-  //   }
-    markers.forEach(mark => {
-      let regex = `/${mark}/i`
-      text = text.replace(regex, '')
-      console.log(text.match(regex))
-    })
-    
-    return text.trimEnd();
-  }
+  let lines = text.split('\n');
+  
+  let result = lines.map(line => {
+    for (let mark of markers) {
+      let index = line.indexOf(mark);
+      if (index !== -1) {
+        line = line.substring(0, index);
+      }
+    }
+    return line.trimEnd();
+  })
+  
+  return result.join('\n');
+}
