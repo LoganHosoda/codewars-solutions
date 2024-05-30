@@ -9,24 +9,36 @@
 // // must return 0
 // cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000});
 
-// SOLUTION
+// REFACTORED SOLUTION
 
 const cakes = (recipe, available) => {
-  let compare = [];
-  let ans;
-  
-  for (const [key, value] of Object.entries(recipe)) {
-    compare.push(value, available[key]);
+  for(let key in recipe){
+       if(!available.hasOwnProperty(key)){
+            return 0;
+       }
   }
-  
-  for (i = 0; i < compare.length; i += 2) {
-    let cur = Math.floor(compare[i + 1] / compare[i]);
-    if (ans === undefined) {
-      ans = cur;
-    } else if (cur < ans) {
-      ans = cur;
-    }
-  }
-  
-  return ans >= 0 ? ans : 0;
+  return Object.entries(recipe)
+  .reduce((ans, [key, val]) => Math.min(ans, Math.floor(available[key] / val)), Infinity) || 0;
 }
+
+// OLD SOLUTION
+
+// const cakes = (recipe, available) => {
+//   let compare = [];
+//   let ans;
+  
+//   for (const [key, value] of Object.entries(recipe)) {
+//     compare.push(value, available[key]);
+//   }
+  
+//   for (i = 0; i < compare.length; i += 2) {
+//     let cur = Math.floor(compare[i + 1] / compare[i]);
+//     if (ans === undefined) {
+//       ans = cur;
+//     } else if (cur < ans) {
+//       ans = cur;
+//     }
+//   }
+  
+//   return ans >= 0 ? ans : 0;
+// }
