@@ -4,7 +4,7 @@
 
 // SOLUTION
 
-function count(string) 
+function count(string) {
   let chars = string.split("");
   let ans = {};
   chars.map(char => ans[char] ? ans[char]++ : ans[char] = 1)
