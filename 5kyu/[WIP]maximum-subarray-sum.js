@@ -9,7 +9,14 @@
 // SOLUTION
 
 var maxSequence = function(arr){
-  if (arr.length <= 0) return 0;
-  if (arr.filter(num => num > 0).length == 0) return 0;
+  if (arr.length <= 0 || arr.filter(num => num > 0).length == 0) return 0;
+  let options = {};
   
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 1; j < arr.length; j++) {
+      
+    };
+  };
+  
+  return options;
 }
