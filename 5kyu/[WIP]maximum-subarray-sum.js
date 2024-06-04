@@ -13,9 +13,11 @@ var maxSequence = function(arr){
   let options = {};
   
   for (let i = 0; i < arr.length; i++) {
+    let temp = []
     for (let j = 1; j < arr.length; j++) {
-      
+      temp.push(arr[i] + arr[j])
     };
+    options(i) = temp
   };
   
   return options;
