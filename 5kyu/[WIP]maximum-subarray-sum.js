@@ -22,3 +22,5 @@ var maxSequence = function(arr){
   
   return options;
 }
+
+console.log("This is a test")
