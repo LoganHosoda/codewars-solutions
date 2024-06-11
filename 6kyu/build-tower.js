@@ -23,16 +23,14 @@
 
 // SOLUTION
 
-
 function towerBuilder(floors) {
-  let stars = 1;
-  let spaces = (floors * 2 - 1) - 1;
-  let str = '';
-  
-  while (floors) {
-    for (let i = 0; i < spaces; i++) {
-      str = ''
-    }
+  let tower = [];
+  for (let i = 0; i < floors; i++) {
+    tower.push(
+      " ".repeat(i),
+      "*".repeat(i),
+      " ".repeat(i)
+    )
   }
-  
 }
+
