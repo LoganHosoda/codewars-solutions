@@ -6,16 +6,20 @@
 // 2 -> 3 (1 + 2)
 // 8 -> 36 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8)
 
-// SOLUTION
+// REFACTORED SOLUTION
 
-var summation = function (num) {
-  let total = 0;
-  let counter = 0;
+const summation = (num) => num * (num + 1) / 2
+
+// OLD SOLUTION
+
+// var summation = function (num) {
+//   let total = 0;
+//   let counter = 0;
   
-  while (counter <= num) {
-    total += counter;
-    counter ++;
-  }
+//   while (counter <= num) {
+//     total += counter;
+//     counter ++;
+//   }
   
-  return total;
-}
+//   return total;
+// }
