@@ -10,7 +10,11 @@
 
 // SOLUTION
 
-function squareDigits(num){
+const squareDigits = num => Number(num.toString().split("").map(n => n ** 2).join(""));
+
+// OLD SOLUTION
+
+function oldSquareDigits(num){
     if (num == 0) return 0;
     
     let str = num + '';
