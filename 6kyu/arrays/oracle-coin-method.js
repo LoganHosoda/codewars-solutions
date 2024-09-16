@@ -46,4 +46,25 @@
 // 
 // SOLUTION
 
-
+function oracle(arrays) {
+  let map = {1: '----x----', 2: '---------', 3: "---- ----", 4: "----o----"}
+  let strToNum = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+  arrays.map(arr => arr[0] = strToNum[arr[0]])
+  let sorted = arrays.sort((a, b) => b[0] - a[0])
+  let linesArr = sorted.map(arr => {
+    let count = 0;
+    arr.forEach(el => {
+      if (el == 'h') count++;
+    })
+    if (count == 0) {
+      return map[1]
+    } else if (count == 1) {
+      return map[2]
+    } else if (count == 2) {
+      return map[3]
+    } else {
+      return map[4]
+    }
+  })
+  return linesArr.join("\n");
+}
