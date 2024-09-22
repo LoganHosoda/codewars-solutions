@@ -18,6 +18,41 @@
 // SOLUTION
 
 function cuckooClock(inputTime, chimes) {
-    // Write code
-    return inputTime
+  // 1. split the input times by the semi-colon to obtain HH and MM
+  let splitTime = inputTime.split(":")
+  
+  // 2. for each chime, advance the clock to the nearest quarter of an hour
+  while (chimes > 1) {
+    console.log(splitTime, chimes)
+    let time = splitTime[1];
+    if (time == 0) {
+      chimes -= splitTime[0]
+      if (chimes > 0) {
+        splitTime[1] = 15
+      }
+      continue
+    }
+    else if (time < 15) splitTime[1] = 15
+    else if (time < 30) splitTime[1] = 30
+    else if (time < 45) splitTime[1] = 45
+    else if (time >= 45) {
+      if (splitTime[0] == 12) splitTime[0] = 0
+      else splitTime[0]++;
+      splitTime[1] = 0;
+    }
+    console.log(splitTime)
+    
+    chimes--
+  }
+  
+  // 3. on even hours, count down the amount of chimes per the actual hour (07 == 7 chimes)
+  
+  
+  // 4. on quarters of the hour, count down 1 chime
+  
+  
+  // 5. finally, when chimes == 0, return the current time
+  
+  
+  return splitTime.join(":")
 }
