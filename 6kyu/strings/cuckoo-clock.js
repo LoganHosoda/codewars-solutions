@@ -18,41 +18,49 @@
 // SOLUTION
 
 function cuckooClock(inputTime, chimes) {
-  // 1. split the input times by the semi-colon to obtain HH and MM
-  let splitTime = inputTime.split(":")
-  
-  // 2. for each chime, advance the clock to the nearest quarter of an hour
-  while (chimes > 1) {
-    console.log(splitTime, chimes)
-    let time = splitTime[1];
-    if (time == 0) {
-      chimes -= splitTime[0]
-      if (chimes > 0) {
-        splitTime[1] = 15
-      }
-      continue
+2
+  let [hour, mins] = inputTime.split(":").map(Number);
+3
+  let countChimes = 0;
+4
+  while (countChimes < chimes) {
+5
+    if (mins == 60) {
+6
+      hour = (hour + 1) % 12 || 12;
+7
+      mins = 0;
+8
     }
-    else if (time < 15) splitTime[1] = 15
-    else if (time < 30) splitTime[1] = 30
-    else if (time < 45) splitTime[1] = 45
-    else if (time >= 45) {
-      if (splitTime[0] == 12) splitTime[0] = 0
-      else splitTime[0]++;
-      splitTime[1] = 0;
-    }
-    console.log(splitTime)
-    
-    chimes--
+9
+    if (mins === 0) countChimes += hour;
+10
+    if (mins !== 0 && mins % 15 === 0) countChimes++;
+11
+    if (countChimes >= chimes) break;
+12
+    mins++;
+13
   }
-  
-  // 3. on even hours, count down the amount of chimes per the actual hour (07 == 7 chimes)
-  
-  
-  // 4. on quarters of the hour, count down 1 chime
-  
-  
-  // 5. finally, when chimes == 0, return the current time
-  
-  
-  return splitTime.join(":")
+14
+  return formatHour(hour, mins);
+15
 }
+16
+​
+17
+function formatHour(hour, mins) {
+18
+  let newHour = hour;
+19
+  let newMins = mins;
+20
+  if (hour.toString().length <= 1) newHour = `0${newHour}`
+21
+  if (mins.toString().length <= 1) newMins = `0${newMins}`
+22
+  return `${newHour}:${newMins}`
+23
+}
+ Correct! Y
+
