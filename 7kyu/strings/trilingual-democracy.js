@@ -23,4 +23,6 @@
 // 
 // SOLUTION
 
-
+function trilingualDemocracy(group) {
+  return String.fromCharCode(group.charCodeAt(0) ^ group.charCodeAt(1) ^ group.charCodeAt(2));
+}
