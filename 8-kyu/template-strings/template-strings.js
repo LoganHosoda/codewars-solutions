@@ -1,0 +1,1 @@
+const templateStrings = (n, a) => `${n} are ${a}`
